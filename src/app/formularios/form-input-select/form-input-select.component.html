@@ -1,0 +1,14 @@
+<div class="input-container">
+    <label [for]="id">{{ label }}</label>
+    <select
+      [ngClass]="{'input-invalido': eInvalido}"
+      [id]="id"
+      [(ngModel)]="value"
+      (blur)="onInputBlur()"
+      (change)="onInputChange($event)"
+      [name]="nome"
+    >
+      <option *ngFor="let option of opcoes" [value]="option.id">{{ option.nome }}</option>
+    </select>
+  </div>
+  

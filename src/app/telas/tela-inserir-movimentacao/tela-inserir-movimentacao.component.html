@@ -1,0 +1,47 @@
+<h1>Inserir Movimentação</h1>
+<form [formGroup]="form" (OnSubmit)="OnSubmit()">
+    <app-input-texto
+        [label]="'Descrição'"
+        [id]="'descricao'"
+        [tipo]="'text'"
+        [nome]="'descricao'"
+        [placeholder]="'Descreva a movimentação'"
+        formControlName="descricao"
+        [eInvalido]="form.controls['descricao'].invalid"
+      >
+    </app-input-texto>
+
+    <app-input-texto
+        [label]="'Valor'"
+        [id]="'valor'"
+        [tipo]="'number'"
+        [nome]="'email'"
+        [placeholder]="'Digite o valor'"
+        formControlName="valor"
+        [eInvalido]="form.controls['valor'].invalid"
+    >
+  </app-input-texto>
+
+  <app-input-date
+        [label]="'Data de Movimentação'"
+        [id]="'dtMovimento'"
+        [nome]="'dtMovimento'"
+        [placeholder]="'Digite o valor'"
+        formControlName="dtMovimento"
+        [eInvalido]="form.controls['dtMovimento'].invalid"
+  >
+  </app-input-date>
+
+ 
+    <app-input-select
+        [label]="'Tipo'"
+        [id]="'selectTipo'"
+        [nome]="'selectTipo'"
+        formControlName="selectTipo"
+        [eInvalido]="form.controls['selectTipo'].invalid"
+        [opcoes]="opcoes"
+    >
+    </app-input-select>
+  
+    <button type="submit" [disabled]="form.invalid">Enviar</button>
+  </form>

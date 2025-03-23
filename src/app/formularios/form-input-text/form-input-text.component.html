@@ -1,0 +1,14 @@
+<div class="input-container" >
+    <label [for]="id">{{ label }}</label>
+    <input
+    [ngClass]="{'input-invalido': eInvalido}"
+      [id]="id"
+      [type]="tipo"
+      [placeholder]="placeholder"
+      [(ngModel)]="value"
+      (blur)="onInputBlur()"
+      (input)="onInputChange($event)"
+      [name]="nome"
+    />
+  </div>
+  
