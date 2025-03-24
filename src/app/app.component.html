@@ -1,3 +1,8 @@
-<div>
-  <router-outlet></router-outlet>
+<div class="container-principal">
+  <app-alerta-pop-up></app-alerta-pop-up>
+  <router-outlet>
+  </router-outlet>
+  <div id="loader" *ngIf="loader">
+    Carregando...
+  </div>
 </div>

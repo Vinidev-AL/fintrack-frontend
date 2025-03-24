@@ -1,0 +1,48 @@
+<h1>Cadastrar Usuário</h1>
+<form [formGroup]="form" (OnSubmit)="OnSubmit()">
+    <app-input-texto
+        [label]="'Nome'"
+        [id]="'first_name'"
+        [tipo]="'text'"
+        [nome]="'first_name'"
+        [placeholder]="'Digite o first name'"
+        formControlName="first_name"
+        [eInvalido]="form.controls['first_name'].invalid"
+    >
+    </app-input-texto>
+
+    <app-input-texto
+        [label]="'Sobrenome'"
+        [id]="'last_name'"
+        [tipo]="'text'"
+        [nome]="'last_name'"
+        [placeholder]="'Digite o last name'"
+        formControlName="last_name"
+        [eInvalido]="form.controls['last_name'].invalid"
+    >
+    </app-input-texto>
+
+    <app-input-texto
+        [label]="'Email'"
+        [id]="'email'"
+        [tipo]="'email'"
+        [nome]="'email'"
+        [placeholder]="'Digite o email'"
+        formControlName="email"
+        [eInvalido]="form.controls['email'].invalid"
+    >
+    </app-input-texto>
+
+    <app-input-texto
+        [label]="'Senha'"
+        [id]="'password'"
+        [tipo]="'password'"
+        [nome]="'password'"
+        [placeholder]="'Digite o password'"
+        formControlName="password"
+        [eInvalido]="form.controls['password'].invalid"
+    >
+    </app-input-texto>
+
+    <button type="submit" [disabled]="form.invalid || !podeEnviar" (click)="enviarDados()">Criar</button>
+</form>

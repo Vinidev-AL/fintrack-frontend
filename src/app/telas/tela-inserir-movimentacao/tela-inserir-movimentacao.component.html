@@ -22,26 +22,27 @@
     >
   </app-input-texto>
 
+
   <app-input-date
         [label]="'Data de Movimentação'"
-        [id]="'dtMovimento'"
-        [nome]="'dtMovimento'"
+        [id]="'data'"
+        [nome]="'data'"
         [placeholder]="'Digite o valor'"
-        formControlName="dtMovimento"
-        [eInvalido]="form.controls['dtMovimento'].invalid"
+        formControlName="data"
+        [eInvalido]="form.controls['data'].invalid"
   >
   </app-input-date>
 
  
     <app-input-select
         [label]="'Tipo'"
-        [id]="'selectTipo'"
-        [nome]="'selectTipo'"
-        formControlName="selectTipo"
-        [eInvalido]="form.controls['selectTipo'].invalid"
+        [id]="'tipo'"
+        [nome]="'tipo'"
+        formControlName="tipo"
+        [eInvalido]="form.controls['tipo'].invalid"
         [opcoes]="opcoes"
     >
     </app-input-select>
   
-    <button type="submit" [disabled]="form.invalid">Enviar</button>
-  </form>
+    <button type="submit" [disabled]="form.invalid" (click)="enviarDados()">Criar</button>
+</form>
