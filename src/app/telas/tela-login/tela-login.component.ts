@@ -6,13 +6,12 @@ import { ChamadaService } from '../../_services/chamada.service';
 import { MensagemService } from '../../_services/mensagem.service';
 
 @Component({
-  selector: 'app-tela-cadastrar-usuario',
+  selector: 'app-tela-login',
   imports: [ModuloCompartilhadoModule, FormInputTextComponent],
-  templateUrl: './tela-cadastrar-usuario.component.html',
-  styleUrl: './tela-cadastrar-usuario.component.scss'
+  templateUrl: './tela-login.component.html',
+  styleUrl: './tela-login.component.scss'
 })
-export class TelaCadastrarUsuarioComponent implements OnInit {
-  
+export class TelaLoginComponent {
   podeEnviar: boolean = true;
   form!: FormGroup;
   constructor(
@@ -47,17 +46,18 @@ export class TelaCadastrarUsuarioComponent implements OnInit {
     if (this.form.valid) {
       this.chamadaService.chamadaPost('/users', dadosParaEnvio).subscribe({
         next: (valor) => {
-          if (valor?.message) {
-            // caso tenha erro, vamos mostrar o pop-up de erro
+          if (valor.error) {
+            console.log("Erro na chamada: ", valor.error);
             this.mensagemService.mensagemErro(`Erro ao cadastrar usuário! ${valor.error}`, 5000);
           } else {
+
             // caso tenha sucesso, vamos mostrar o pop-up de sucesso
             this.mensagemService.mensagemSucesso('Usuário cadastrado com sucesso!', 5000);
-            this.form.reset(); // Limpa o formulário após o sucesso
           }
         },
         error: (error) => {
           this.mensagemService.mensagemErro('Erro ao cadastrar usuário!', 5000);
+          console.error('Erro ao fazer a requisição:', error);
           this.podeEnviar = true
         },
         complete: () => {
@@ -70,3 +70,6 @@ export class TelaCadastrarUsuarioComponent implements OnInit {
     }
   }
 }
+
+
+

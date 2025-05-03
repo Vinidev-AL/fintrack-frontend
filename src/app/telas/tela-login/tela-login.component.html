@@ -16,28 +16,6 @@
 </div>
 <form class="card-formulario" [formGroup]="form" (OnSubmit)="OnSubmit()">
     <app-input-texto
-        [label]="'Nome'"
-        [id]="'first_name'"
-        [tipo]="'text'"
-        [nome]="'first_name'"
-        [placeholder]="'Nome'"
-        formControlName="first_name"
-        [eInvalido]="form.controls['first_name'].invalid"
-    >
-    </app-input-texto>
-
-    <app-input-texto
-        [label]="'Sobrenome'"
-        [id]="'last_name'"
-        [tipo]="'text'"
-        [nome]="'last_name'"
-        [placeholder]="'Sobrenome'"
-        formControlName="last_name"
-        [eInvalido]="form.controls['last_name'].invalid"
-    >
-    </app-input-texto>
-
-    <app-input-texto
         [label]="'Email'"
         [id]="'email'"
         [tipo]="'email'"
@@ -66,5 +44,5 @@
         [disabled]="form.invalid || !podeEnviar" 
         (click)="enviarDados()"
 
-        >Criar</button>
+        >Entrar</button>
 </form>

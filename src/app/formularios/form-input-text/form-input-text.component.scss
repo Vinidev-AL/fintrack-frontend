@@ -14,26 +14,27 @@ input:focus{
     position: relative;
     margin-bottom: 20px;
     font-family: 'Arial', sans-serif;
+    min-height: 50px;
   }
   
   .input-container label {
     display: block;
     font-size: 14px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 5px;
   }
   
   .input-container input {
     width: 100%;
-    padding: 12px 16px;
+    padding: 19px 12px;
     font-size: 16px;
     border: 2px solid #ccc;
     border-radius: 8px;
     outline: none;
     transition: all 0.3s ease;
     background-color: #f9f9f9;
-    color: #333;
+    color: var(-background-color);
   }
   
   .input-container input:focus {
