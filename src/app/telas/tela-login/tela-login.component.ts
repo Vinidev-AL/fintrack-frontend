@@ -22,27 +22,24 @@ export class TelaLoginComponent {
   
   ngOnInit(): void {
     this.form = this.fb.group({
-      first_name: ['', [Validators.required]],
-      last_name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+
   }
-  
+
+
   OnSubmit(){
     console.log("Teve submit");
   }
 
   enviarDados(){
     this.podeEnviar = false;
-    console.log("Enviando dados");
     let dadosParaEnvio = {};
     dadosParaEnvio = this.chamadaService.estabeleObjetoValoresFormulario(dadosParaEnvio, this.form);
 
-    console.log("Dados para envio: ", dadosParaEnvio);
 
-
-
+    // Rotas de liogin ainda não feitas no back, aguardando conclusão do back-end para fazer o login
     if (this.form.valid) {
       this.chamadaService.chamadaPost('/users', dadosParaEnvio).subscribe({
         next: (valor) => {

@@ -1,0 +1,61 @@
+
+<div class="container-logo">
+    <img src="/images/logo-resumida.png" alt="">
+    <p class="texto-logo-resumida">FinTrack finance</p>
+</div>
+
+<div class="card-titulos">
+    <h1 class="titulo-pagina">Cadastra a movimentação</h1>
+</div>
+<form class="card-formulario" [formGroup]="form" (OnSubmit)="OnSubmit()">
+    <app-input-texto
+        [label]="'Nome'"
+        [id]="'name'"
+        [tipo]="'text'"
+        [nome]="'name'"
+        [placeholder]="'Nome'"
+        formControlName="name"
+        [eInvalido]="form.controls['name'].invalid"
+    >
+    </app-input-texto>
+
+    <app-input-date
+        [id]="'date'"
+        [nome]="'date'"
+        formControlName="date"
+        [eInvalido]="form.controls['date'].invalid"
+    >
+
+    </app-input-date>
+
+    <app-input-texto
+        [label]="'Valor'"
+        [id]="'amount'"
+        [tipo]="'number'"
+        [nome]="'amount'"
+        [placeholder]="'Amount'"
+        formControlName="amount"
+        [eInvalido]="form.controls['amount'].invalid"
+    >
+    </app-input-texto>
+
+
+    <app-input-select
+        [id]="'type'"
+        [nome]="'type'"
+        formControlName="type"
+        [eInvalido]="form.controls['type'].invalid"
+        [opcoes]="tipos"
+    >
+    </app-input-select>
+
+
+    <button 
+        class="botao-confirmar" 
+        [ngClass]="{ 'desabilitado': form.invalid || !podeEnviar }"
+        type="submit" 
+        [disabled]="form.invalid || !podeEnviar" 
+        (click)="enviarDados()"
+
+        >Criar</button>
+</form>

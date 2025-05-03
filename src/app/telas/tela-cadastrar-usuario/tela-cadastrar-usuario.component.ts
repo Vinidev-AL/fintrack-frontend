@@ -5,6 +5,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChamadaService } from '../../_services/chamada.service';
 import { MensagemService } from '../../_services/mensagem.service';
 
+interface DadosParaEnvio {
+  name: string;
+  date: string;
+  valor: number;
+  type: string;
+}
+
 @Component({
   selector: 'app-tela-cadastrar-usuario',
   imports: [ModuloCompartilhadoModule, FormInputTextComponent],
@@ -20,6 +27,7 @@ export class TelaCadastrarUsuarioComponent implements OnInit {
     private chamadaService: ChamadaService,
     private mensagemService: MensagemService
   ) {}
+
   
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -34,15 +42,9 @@ export class TelaCadastrarUsuarioComponent implements OnInit {
     console.log("Teve submit");
   }
 
-  enviarDados(){
+  async enviarDados(){
     this.podeEnviar = false;
-    console.log("Enviando dados");
-    let dadosParaEnvio = {};
-    dadosParaEnvio = this.chamadaService.estabeleObjetoValoresFormulario(dadosParaEnvio, this.form);
-
-    console.log("Dados para envio: ", dadosParaEnvio);
-
-
+    let dadosParaEnvio = {}
 
     if (this.form.valid) {
       this.chamadaService.chamadaPost('/users', dadosParaEnvio).subscribe({
